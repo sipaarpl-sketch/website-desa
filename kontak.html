@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak Kami - Desa Pusaka</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts untuk Tampilan Modern -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header & Navigasi -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <span class="logo-icon">🌿</span>
+                <div class="logo-text">
+                    <span class="brand-title">DESA PUSAKA</span>
+                    <span class="brand-sub">Kec. Tebas, Kab. Sambas</span>
+                </div>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="profil.html">Profil Desa</a></li>
+                    <li><a href="potensi.html">Potensi Desa</a></li>
+                    <li><a href="berita.html">Berita</a></li>
+                    <li><a href="layanan.html">Layanan</a></li>
+                    <li><a href="kontak.html" class="active btn-nav">Kontak Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Banner / Header Kontak -->
+    <section class="page-header">
+        <div class="page-header-overlay"></div>
+        <div class="container page-header-content">
+            <span class="badge">Hubungi Kami</span>
+            <h1>Kontak & Pusat Informasi</h1>
+            <p>Pemerintah Desa Pusaka siap melayani pertanyaan, aspirasi, serta kebutuhan informasi warga.</p>
+        </div>
+    </section>
+
+    <!-- Section Utama Kontak & Form -->
+    <section style="padding: 60px 0;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; align-items: start;">
+                
+                <!-- Kolom Informasi Kontak -->
+                <div>
+                    <span class="section-tag">Informasi Layanan</span>
+                    <h2 style="color: #1b4d2e; margin-bottom: 20px;">Kantor Desa Pusaka</h2>
+                    <p style="color: #555; margin-bottom: 30px; line-height: 1.6;">Silakan kunjungi kantor kami pada jam kerja operasional atau hubungi melalui saluran komunikasi resmi berikut:</p>
+
+                    <div style="display: flex; flex-direction: column; gap: 20px;">
+                        <div style="display: flex; gap: 15px; align-items: flex-start;">
+                            <div style="background: #eaf3ed; color: #2e6f40; font-size: 1.4rem; padding: 12px; border-radius: 8px;">📍</div>
+                            <div>
+                                <h4 style="margin: 0 0 5px 0; color: #1b4d2e;">Alamat Kantor</h4>
+                                <p style="margin: 0; color: #666; font-size: 0.95rem;">Jl. Raya Desa Pusaka, Kecamatan Tebas, Kabupaten Sambas, Kalimantan Barat 79461</p>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; gap: 15px; align-items: flex-start;">
+                            <div style="background: #eaf3ed; color: #2e6f40; font-size: 1.4rem; padding: 12px; border-radius: 8px;">✉️</div>
+                            <div>
+                                <h4 style="margin: 0 0 5px 0; color: #1b4d2e;">Email Resmi</h4>
+                                <p style="margin: 0; color: #666; font-size: 0.95rem;">pusaka.pbs@gmail.com</p>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; gap: 15px; align-items: flex-start;">
+                            <div style="background: #eaf3ed; color: #2e6f40; font-size: 1.4rem; padding: 12px; border-radius: 8px;">🕒</div>
+                            <div>
+                                <h4 style="margin: 0 0 5px 0; color: #1b4d2e;">Jam Operasional</h4>
+                                <p style="margin: 0; color: #666; font-size: 0.95rem;">Senin – Kamis: 08.00 – 15.00 WIB<br>Jumat: 08.00 – 13.00 WIB</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kolom Formulir Pesan / Aspirasi -->
+                <div style="background: #fff; padding: 35px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); border: 1px solid #eee;">
+                    <h3 style="color: #1b4d2e; margin-bottom: 10px;">Kirim Pesan atau Aspirasi</h3>
+                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 25px;">Sampaikan saran, pertanyaan, atau keluhan Anda langsung ke pengelola website desa.</p>
+
+                    <form action="#" method="POST" style="display: flex; flex-direction: column; gap: 18px;">
+                        <div>
+                            <label style="display: block; font-weight: 600; margin-bottom: 6px; font-size: 0.9rem; color: #333;">Nama Lengkap</label>
+                            <input type="text" placeholder="Masukkan nama Anda" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-family: inherit; font-size: 0.95rem; box-sizing: border-box;">
+                        </div>
+
+                        <div>
+                            <label style="display: block; font-weight: 600; margin-bottom: 6px; font-size: 0.9rem; color: #333;">Nomor WhatsApp / HP</label>
+                            <input type="tel" placeholder="Contoh: 08123456789" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-family: inherit; font-size: 0.95rem; box-sizing: border-box;">
+                        </div>
+
+                        <div>
+                            <label style="display: block; font-weight: 600; margin-bottom: 6px; font-size: 0.9rem; color: #333;">Kategori Pesan</label>
+                            <select style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-family: inherit; font-size: 0.95rem; box-sizing: border-box; background: #fff;">
+                                <option>Pertanyaan Umum</option>
+                                <option>Layanan Surat & Administrasi</option>
+                                <option>Aspirasi & Saran Pembangunan</option>
+                                <option>Pengaduan Warga</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label style="display: block; font-weight: 600; margin-bottom: 6px; font-size: 0.9rem; color: #333;">Pesan / Isi Aspirasi</label>
+                            <textarea rows="4" placeholder="Tuliskan pesan Anda di sini..." required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-family: inherit; font-size: 0.95rem; box-sizing: border-box; resize: vertical;"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-primary" style="border: none; cursor: pointer; padding: 14px; font-size: 1rem; width: 100%;">Kirim Pesan</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Peta Lokasi Kantor Desa -->
+    <section class="peta-section" style="padding-top: 0;">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Petunjuk Arah</span>
+                <h2>Peta Peta Kantor Desa Pusaka</h2>
+                <p>Lokasi Kantor Desa Pusaka, Kecamatan Tebas, Kab. Sambas</p>
+            </div>
+            <div class="map-wrapper">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31911.23456789!2d109.1833!3d1.2833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31e4e00000000001%3A0x0!2sTebas%2C%20Kabupaten%20Sambas%2C%20Kalimantan%20Barat!5e0!3m2!1sid!2sid!4v1600000000000!5m2!1sid!2sid" 
+                    width="100%" 
+                    height="380" 
+                    style="border:0; border-radius: var(--radius-lg);" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-info">
+                <div class="logo light">
+                    <span class="logo-icon">🌿</span>
+                    <span class="brand-title">DESA PUSAKA</span>
+                </div>
+                <p>Website Resmi Pemerintah Desa Pusaka, Kecamatan Tebas, Kabupaten Sambas, Kalimantan Barat.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Navigasi Cepat</h4>
+                <ul>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="profil.html">Profil Desa</a></li>
+                    <li><a href="potensi.html">Potensi Desa</a></li>
+                    <li><a href="berita.html">Berita</a></li>
+                    <li><a href="layanan.html">Layanan Publik</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Kontak Kantor Desa</h4>
+                <p>📍 Jl. Raya Desa Pusaka, Kec. Tebas, Kab. Sambas</p>
+                <p>✉️ pusaka.pbs@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Pemerintah Desa Pusaka, Tebas, Sambas. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
