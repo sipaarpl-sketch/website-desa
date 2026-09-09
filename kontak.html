@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +9,10 @@
     <!-- Google Fonts untuk Tampilan Modern -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
 
     <!-- Header & Navigasi -->
@@ -48,25 +51,32 @@
     <!-- Section Utama Kontak & Form -->
     <section style="padding: 60px 0;">
         <div class="container">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; align-items: start;">
-                
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; align-items: start;">
+
                 <!-- Kolom Informasi Kontak -->
                 <div>
                     <span class="section-tag">Informasi Layanan</span>
                     <h2 style="color: #1b4d2e; margin-bottom: 20px;">Kantor Desa Pusaka</h2>
-                    <p style="color: #555; margin-bottom: 30px; line-height: 1.6;">Silakan kunjungi kantor kami pada jam kerja operasional atau hubungi melalui saluran komunikasi resmi berikut:</p>
+                    <p style="color: #555; margin-bottom: 30px; line-height: 1.6;">Silakan kunjungi kantor kami pada jam
+                        kerja operasional atau hubungi melalui saluran komunikasi resmi berikut:</p>
 
                     <div style="display: flex; flex-direction: column; gap: 20px;">
                         <div style="display: flex; gap: 15px; align-items: flex-start;">
-                            <div style="background: #eaf3ed; color: #2e6f40; font-size: 1.4rem; padding: 12px; border-radius: 8px;">📍</div>
+                            <div
+                                style="background: #eaf3ed; color: #2e6f40; font-size: 1.4rem; padding: 12px; border-radius: 8px;">
+                                📍</div>
                             <div>
                                 <h4 style="margin: 0 0 5px 0; color: #1b4d2e;">Alamat Kantor</h4>
-                                <p style="margin: 0; color: #666; font-size: 0.95rem;">Jl. Raya Desa Pusaka, Kecamatan Tebas, Kabupaten Sambas, Kalimantan Barat 79461</p>
+                                <p style="margin: 0; color: #666; font-size: 0.95rem;">Jl. Raya Desa Pusaka, Kecamatan
+                                    Tebas, Kabupaten Sambas, Kalimantan Barat 79461</p>
                             </div>
                         </div>
 
                         <div style="display: flex; gap: 15px; align-items: flex-start;">
-                            <div style="background: #eaf3ed; color: #2e6f40; font-size: 1.4rem; padding: 12px; border-radius: 8px;">✉️</div>
+                            <div
+                                style="background: #eaf3ed; color: #2e6f40; font-size: 1.4rem; padding: 12px; border-radius: 8px;">
+                                ✉️</div>
                             <div>
                                 <h4 style="margin: 0 0 5px 0; color: #1b4d2e;">Email Resmi</h4>
                                 <p style="margin: 0; color: #666; font-size: 0.95rem;">pusaka.pbs@gmail.com</p>
@@ -74,47 +84,66 @@
                         </div>
 
                         <div style="display: flex; gap: 15px; align-items: flex-start;">
-                            <div style="background: #eaf3ed; color: #2e6f40; font-size: 1.4rem; padding: 12px; border-radius: 8px;">🕒</div>
+                            <div
+                                style="background: #eaf3ed; color: #2e6f40; font-size: 1.4rem; padding: 12px; border-radius: 8px;">
+                                🕒</div>
                             <div>
                                 <h4 style="margin: 0 0 5px 0; color: #1b4d2e;">Jam Operasional</h4>
-                                <p style="margin: 0; color: #666; font-size: 0.95rem;">Senin – Kamis: 08.00 – 15.00 WIB<br>Jumat: 08.00 – 13.00 WIB</p>
+                                <p style="margin: 0; color: #666; font-size: 0.95rem;">Senin – Kamis: 08.00 – 15.00
+                                    WIB<br>Jumat: 08.00 – 13.00 WIB</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Kolom Formulir Pesan / Aspirasi -->
-                <div style="background: #fff; padding: 35px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); border: 1px solid #eee;">
+                <div
+                    style="background: #fff; padding: 35px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); border: 1px solid #eee;">
                     <h3 style="color: #1b4d2e; margin-bottom: 10px;">Kirim Pesan atau Aspirasi</h3>
-                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 25px;">Sampaikan saran, pertanyaan, atau keluhan Anda langsung ke pengelola website desa.</p>
+                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 25px;">Sampaikan saran, pertanyaan, atau
+                        keluhan Anda langsung ke pengelola website desa.</p>
 
-                    <form action="#" method="POST" style="display: flex; flex-direction: column; gap: 18px;">
+                    <form id="contactForm" style="display: flex; flex-direction: column; gap: 18px;">
                         <div>
-                            <label style="display: block; font-weight: 600; margin-bottom: 6px; font-size: 0.9rem; color: #333;">Nama Lengkap</label>
-                            <input type="text" placeholder="Masukkan nama Anda" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-family: inherit; font-size: 0.95rem; box-sizing: border-box;">
+                            <label
+                                style="display: block; font-weight: 600; margin-bottom: 6px; font-size: 0.9rem; color: #333;">Nama
+                                Lengkap</label>
+                            <input type="text" name="nama" placeholder="Masukkan nama Anda" required
+                                style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-family: inherit; font-size: 0.95rem; box-sizing: border-box;">
                         </div>
 
                         <div>
-                            <label style="display: block; font-weight: 600; margin-bottom: 6px; font-size: 0.9rem; color: #333;">Nomor WhatsApp / HP</label>
-                            <input type="tel" placeholder="Contoh: 08123456789" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-family: inherit; font-size: 0.95rem; box-sizing: border-box;">
+                            <label
+                                style="display: block; font-weight: 600; margin-bottom: 6px; font-size: 0.9rem; color: #333;">Nomor
+                                WhatsApp / HP</label>
+                            <input type="tel" name="hp" placeholder="Contoh: 08123456789" required
+                                style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-family: inherit; font-size: 0.95rem; box-sizing: border-box;">
                         </div>
 
                         <div>
-                            <label style="display: block; font-weight: 600; margin-bottom: 6px; font-size: 0.9rem; color: #333;">Kategori Pesan</label>
-                            <select style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-family: inherit; font-size: 0.95rem; box-sizing: border-box; background: #fff;">
-                                <option>Pertanyaan Umum</option>
-                                <option>Layanan Surat & Administrasi</option>
-                                <option>Aspirasi & Saran Pembangunan</option>
-                                <option>Pengaduan Warga</option>
+                            <label
+                                style="display: block; font-weight: 600; margin-bottom: 6px; font-size: 0.9rem; color: #333;">Kategori
+                                Pesan</label>
+                            <select name="kategori"
+                                style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-family: inherit; font-size: 0.95rem; box-sizing: border-box; background: #fff;">
+                                <option value="Pertanyaan Umum">Pertanyaan Umum</option>
+                                <option value="Layanan Surat & Administrasi">Layanan Surat & Administrasi</option>
+                                <option value="Aspirasi & Saran Pembangunan">Aspirasi & Saran Pembangunan</option>
+                                <option value="Pengaduan Warga">Pengaduan Warga</option>
                             </select>
                         </div>
 
                         <div>
-                            <label style="display: block; font-weight: 600; margin-bottom: 6px; font-size: 0.9rem; color: #333;">Pesan / Isi Aspirasi</label>
-                            <textarea rows="4" placeholder="Tuliskan pesan Anda di sini..." required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-family: inherit; font-size: 0.95rem; box-sizing: border-box; resize: vertical;"></textarea>
+                            <label
+                                style="display: block; font-weight: 600; margin-bottom: 6px; font-size: 0.9rem; color: #333;">Pesan
+                                / Isi Aspirasi</label>
+                            <textarea name="pesan" rows="4" placeholder="Tuliskan pesan Anda di sini..." required
+                                style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-family: inherit; font-size: 0.95rem; box-sizing: border-box; resize: vertical;"></textarea>
                         </div>
 
-                        <button type="submit" class="btn-primary" style="border: none; cursor: pointer; padding: 14px; font-size: 1rem; width: 100%;">Kirim Pesan</button>
+                        <button type="submit" id="btnSubmit" class="btn-primary"
+                            style="border: none; cursor: pointer; padding: 14px; font-size: 1rem; width: 100%;">Kirim
+                            Pesan</button>
                     </form>
                 </div>
 
@@ -131,12 +160,9 @@
                 <p>Lokasi Kantor Desa Pusaka, Kecamatan Tebas, Kab. Sambas</p>
             </div>
             <div class="map-wrapper">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31911.23456789!2d109.1833!3d1.2833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31e4e00000000001%3A0x0!2sTebas%2C%20Kabupaten%20Sambas%2C%20Kalimantan%20Barat!5e0!3m2!1sid!2sid!4v1600000000000!5m2!1sid!2sid" 
-                    width="100%" 
-                    height="380" 
-                    style="border:0; border-radius: var(--radius-lg);" 
-                    allowfullscreen="" 
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31911.23456789!2d109.1833!3d1.2833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31e4e00000000001%3A0x0!2sTebas%2C%20Kabupaten%20Sambas%2C%20Kalimantan%20Barat!5e0!3m2!1sid!2sid!4v1600000000000!5m2!1sid!2sid"
+                    width="100%" height="380" style="border:0; border-radius: var(--radius-lg);" allowfullscreen=""
                     loading="lazy">
                 </iframe>
             </div>
@@ -174,5 +200,34 @@
         </div>
     </footer>
 
+    <script>
+        // MASUKKAN URL WEB APP GOOGLE SCRIPT ANDA DI ANTARA TANDA PETIK
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwoO-bZ-iEacDP_2IClbaxFQJeONFlL828PXCHUfv0g5wlwZxvJKACd-2P8ijaX6ary/exec'; 
+        
+        const form = document.getElementById('contactForm');
+        const btnSubmit = document.getElementById('btnSubmit');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            btnSubmit.disabled = true;
+            btnSubmit.innerHTML = 'Sending...';
+
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                    btnSubmit.disabled = false;
+                    btnSubmit.innerHTML = 'Kirim Pesan';
+                    alert('Terima kasih! Pesan/Aspirasi Anda berhasil terkirim ke database Desa.');
+                    form.reset();
+                })
+                .catch(error => {
+                    btnSubmit.disabled = false;
+                    btnSubmit.innerHTML = 'Kirim Pesan';
+                    alert('Gagal mengirim pesan. Silakan coba lagi.');
+                    console.error('Error!', error.message);
+                });
+        });
+    </script>
+
 </body>
+
 </html>
