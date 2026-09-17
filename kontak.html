@@ -3,33 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Layanan Publik - Desa Pusaka</title>
+    <title>Kontak Us - Desa Pusaka</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts untuk Tampilan Modern -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-   <!-- Header & Navigasi -->
+    <!-- NAVBAR SESUAI DESAIN UTAMA WEBSITE -->
     <header class="navbar">
         <div class="container nav-container">
             <div class="logo">
-                <span class="logo-icon">🌿</span>
+                <span class="logo-icon">🌱</span>
                 <div class="logo-text">
                     <span class="brand-title">DESA PUSAKA</span>
                     <span class="brand-sub">Kec. Tebas, Kab. Sambas</span>
                 </div>
             </div>
-            <nav>
+            
+            <nav class="nav-menu">
                 <ul class="nav-links">
                     <li><a href="index.html">Beranda</a></li>
                     <li><a href="profil.html">Profil Desa</a></li>
                     <li><a href="potensi.html">Potensi Desa</a></li>
                     <li><a href="berita.html">Berita</a></li>
                     <li><a href="layanan.html">Layanan</a></li>
-                    <li><a href="kontak.html" class="active">Kontak Us</a></li>
+                    <li><a href="kontak.html" class="active btn-kontak">Kontak Us</a></li>
                     <li><a href="admin.html">Admin</a></li>
                 </ul>
             </nav>
@@ -37,16 +37,12 @@
     </header>
 
     <!-- HERO / BANNER HEADER DESA -->
-     <section class="page-header">
-        <div class="page-header-overlay"></div>
-        <div class="container page-header-content">
-            <span class="badge">Hubungi Kami</span>
-            <h1>Hubungi Kami & Cek Balasan</h1>
-            <p>Sampaikan saran, aspirasi, atau pengaduan Anda. Anda juga dapat mengecek balasan dari admin menggunakan kode unik yang didapatkan.</p>
-        </div>
+    <section style="background: linear-gradient(rgba(27, 77, 46, 0.85), rgba(27, 77, 46, 0.85)), url('hero-bg.jpg') center/cover no-repeat; padding: 60px 20px; text-align: center; color: white;">
+        <h1 style="font-size: 2.2rem; font-weight: 800; margin-bottom: 10px;">Hubungi Kami & Cek Balasan</h1>
+        <p style="font-size: 1rem; opacity: 0.9; max-width: 600px; margin: 0 auto;">Sampaikan saran, aspirasi, atau pengaduan Anda. Anda juga dapat mengecek balasan dari admin menggunakan kode unik yang didapatkan.</p>
     </section>
 
-    <!-- KONTEN UTAMA: FORM KIRIM & CEK BALASAN -->
+    <!-- KONTEN UTAMA -->
     <div class="container" style="max-width: 1100px; margin: 40px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;">
         
         <!-- BAGIAN 1: FORM KIRIM ASPIRASI / PESAN -->
@@ -57,17 +53,17 @@
             <form id="contactForm" style="display: flex; flex-direction: column; gap: 15px;">
                 <div>
                     <label style="display: block; font-weight: 600; margin-bottom: 5px; font-size: 0.85rem;">Nama Lengkap</label>
-                    <input type="text" name="nama" placeholder="Masukkan nama Anda..." required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-family: inherit;">
+                    <input type="text" id="inputNama" placeholder="Masukkan nama Anda..." required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-family: inherit;">
                 </div>
 
                 <div>
                     <label style="display: block; font-weight: 600; margin-bottom: 5px; font-size: 0.85rem;">Nomor WhatsApp / HP</label>
-                    <input type="tel" name="hp" placeholder="08xxxxxxxxxx" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-family: inherit;">
+                    <input type="tel" id="inputHp" placeholder="08xxxxxxxxxx" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-family: inherit;">
                 </div>
 
                 <div>
                     <label style="display: block; font-weight: 600; margin-bottom: 5px; font-size: 0.85rem;">Kategori Pesan</label>
-                    <select name="kategori" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; background: #fff; box-sizing: border-box; font-family: inherit;">
+                    <select id="inputKategori" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; background: #fff; box-sizing: border-box; font-family: inherit;">
                         <option value="Kesehatan & Posyandu">🏥 Layanan Kesehatan & Posyandu</option>
                         <option value="Pendidikan & Kepemudaan">🎓 Pendidikan & Kepemudaan</option>
                         <option value="Kebersihan & Lingkungan">🧹 Kebersihan & Lingkungan</option>
@@ -81,7 +77,7 @@
 
                 <div>
                     <label style="display: block; font-weight: 600; margin-bottom: 5px; font-size: 0.85rem;">Isi Pesan / Aspirasi</label>
-                    <textarea name="pesan" rows="4" placeholder="Tuliskan pesan Anda secara rinci..." required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; resize: vertical; font-family: inherit;"></textarea>
+                    <textarea id="inputPesan" rows="4" placeholder="Tuliskan pesan Anda secara rinci..." required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; resize: vertical; font-family: inherit;"></textarea>
                 </div>
 
                 <button type="submit" id="btnSubmit" style="background: #1b4d2e; color: white; border: none; padding: 12px; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.95rem;">Kirim Pesan</button>
@@ -107,50 +103,113 @@
 
             <!-- HASIL PENGECEKAN BALASAN -->
             <div id="hasilCek" style="display: none; background: #f9f9f9; padding: 15px; border-radius: 8px; border: 1px solid #eee;">
-                <!-- Diisi via JavaScript -->
             </div>
         </div>
 
     </div>
 
     <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwoO-bZ-iEacDP_2IClbaxFQJeONFlL828PXCHUfv0g5wlwZxvJKACd-2P8ijaX6ary/exec';
+
         const form = document.getElementById('contactForm');
-const btnSubmit = document.getElementById('btnSubmit');
+        const btnSubmit = document.getElementById('btnSubmit');
 
-form.addEventListener('submit', e => {
-    e.preventDefault();
-    btnSubmit.disabled = true;
-    btnSubmit.innerHTML = 'Mengirim...';
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            btnSubmit.disabled = true;
+            btnSubmit.innerHTML = 'Mengirim...';
 
-    // 1. Buat kode unik langsung di HP pengguna
-    const randomNum = Math.floor(1000 + Math.random() * 9000);
-    const kodeUnik = `DESA-${randomNum}`;
+            // 1. Generate Kode Unik
+            const randomNum = Math.floor(1000 + Math.random() * 9000);
+            const kodeUnik = `DESA-${randomNum}`;
 
-    // 2. Siapkan data pengiriman
-    const formData = new FormData(form);
-    formData.append('kode', kodeUnik);
+            // 2. Ambil nilai input
+            const nama = document.getElementById('inputNama').value;
+            const hp = document.getElementById('inputHp').value;
+            const kategori = document.getElementById('inputKategori').value;
+            const pesan = document.getElementById('inputPesan').value;
 
-    // 3. Tampilkan kode unik secara instan ke layar HP
-    document.getElementById('successBox').style.display = 'block';
-    document.getElementById('generatedCode').innerText = kodeUnik;
+            // 3. Format data x-www-form-urlencoded (Aman & Ramah Browser HP)
+            const params = new URLSearchParams();
+            params.append('kode', kodeUnik);
+            params.append('nama', nama);
+            params.append('hp', hp);
+            params.append('kategori', kategori);
+            params.append('pesan', pesan);
 
-    // 4. Kirim data ke Google Sheets
-    fetch(scriptURL, { 
-        method: 'POST', 
-        body: formData,
-        mode: 'no-cors' // Menghindari kendala CORS di browser HP
-    })
-    .then(() => {
-        btnSubmit.disabled = false;
-        btnSubmit.innerHTML = 'Kirim Pesan';
-        form.reset();
-    })
-    .catch(error => {
-        btnSubmit.disabled = false;
-        btnSubmit.innerHTML = 'Kirim Pesan';
-        alert('Gagal terhubung ke server. Periksa koneksi internet Anda.');
-    });
-});
+            // 4. Kirim dengan mode no-cors
+            fetch(scriptURL, { 
+                method: 'POST', 
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: params.toString()
+            })
+            .then(() => {
+                btnSubmit.disabled = false;
+                btnSubmit.innerHTML = 'Kirim Pesan';
+                
+                // Tampilkan kode unik secara pasti!
+                document.getElementById('successBox').style.display = 'block';
+                document.getElementById('generatedCode').innerText = kodeUnik;
+                form.reset();
+            })
+            .catch(error => {
+                btnSubmit.disabled = false;
+                btnSubmit.innerHTML = 'Kirim Pesan';
+                // Jika offline total
+                alert('Koneksi terputus. Silakan periksa jaringan internet Anda.');
+            });
+        });
+
+        // Cek Balasan Berdasarkan Kode Unik
+        function cekBalasan() {
+            const kode = document.getElementById('inputKode').value.trim();
+            if(!kode) {
+                alert('Silakan masukkan kode pesan Anda terlebih dahulu!');
+                return;
+            }
+
+            const hasilBox = document.getElementById('hasilCek');
+            hasilBox.style.display = 'block';
+            hasilBox.innerHTML = '<p style="text-align:center; color:#666; margin:0;">Sedang mencari data...</p>';
+
+            fetch(`${scriptURL}?kode=${encodeURIComponent(kode)}`)
+                .then(res => res.json())
+                .then(data => {
+                    if(!data) {
+                        hasilBox.innerHTML = '<p style="color:#d9534f; text-align:center; margin:0; font-weight:600;">⚠️ Kode tidak ditemukan. Periksa kembali kode Anda.</p>';
+                        return;
+                    }
+
+                    let statusHTML = '';
+                    if (data.balasan && data.balasan.trim() !== "") {
+                        statusHTML = `
+                            <div style="background: #eaf3ed; border-left: 4px solid #1b4d2e; padding: 12px; color: #1b4d2e; border-radius: 4px; margin-top: 10px;">
+                                <strong style="display:block; margin-bottom: 4px;">💬 Balasan Admin Desa:</strong>
+                                ${data.balasan}
+                            </div>`;
+                    } else {
+                        statusHTML = `
+                            <div style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 12px; color: #856404; border-radius: 4px; margin-top: 10px;">
+                                ⏳ <strong>Pesan belum dibalas oleh admin.</strong> Silakan cek kembali nanti.
+                            </div>`;
+                    }
+
+                    hasilBox.innerHTML = `
+                        <div style="font-size: 0.8rem; color: #777;">Tanggal: ${data.waktu}</div>
+                        <div style="font-weight: 700; color: #1b4d2e; margin-top: 2px;">Kategori: ${data.kategori}</div>
+                        <div style="margin-top: 10px; font-size: 0.85rem; color: #444; background: #fff; padding: 10px; border-radius: 6px; border: 1px solid #e0e0e0;">
+                            <strong>Pesan Anda:</strong><br>${data.pesan}
+                        </div>
+                        ${statusHTML}
+                    `;
+                })
+                .catch(err => {
+                    hasilBox.innerHTML = '<p style="color:red; text-align:center; margin:0;">Gagal mengambil data dari server.</p>';
+                });
+        }
     </script>
 </body>
 </html>
