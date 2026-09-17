@@ -14,135 +14,161 @@
     <!-- NAVBAR ADMIN -->
     <header class="navbar" style="background: #ffffff; border-bottom: 1px solid #e5e7eb; padding: 15px 0;">
         <div class="container nav-container" style="display: flex; justify-content: space-between; align-items: center; max-width: 1100px; margin: 0 auto; padding: 0 20px;">
-            
             <div class="logo" style="display: flex; align-items: center; gap: 10px;">
-                <span class="logo-icon" style="font-size: 1.5rem;">🔒</span>
-                <div class="logo-text">
-                    <span class="brand-title" style="display: block; font-weight: 800; color: #1b4d2e; font-size: 1.1rem;">ADMIN PANEL</span>
-                    <span class="brand-sub" style="display: block; font-size: 0.8rem; color: #666;">Desa Pusaka</span>
+                <span style="font-size: 1.5rem;">🔒</span>
+                <div>
+                    <span style="display: block; font-weight: 800; color: #1b4d2e; font-size: 1.1rem;">ADMIN PANEL</span>
+                    <span style="display: block; font-size: 0.8rem; color: #666;">Desa Pusaka</span>
                 </div>
             </div>
-
-            <!-- MENU / TOMBOL NAVIGASI HEADER -->
-            <div style="display: flex; align-items: center; gap: 12px;">
-                <!-- Tombol Kembali ke Website -->
-                <a href="index.html" style="text-decoration: none; background: #eaf3ed; color: #1b4d2e; padding: 8px 16px; border-radius: 6px; font-weight: 600; font-size: 0.9rem; transition: 0.2s;">
-                    🏠 Kembali ke Website
-                </a>
-
-                <!-- Tombol Logout (Tampil Hanya Setelah Login) -->
-                <button id="btnLogout" onclick="logout()" style="display: none; background: #d9534f; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.9rem;">
-                    🚪 Keluar (Logout)
-                </button>
+            <div style="display: flex; gap: 10px;">
+                <a href="index.html" style="text-decoration: none; background: #eaf3ed; color: #1b4d2e; padding: 8px 16px; border-radius: 6px; font-weight: 600; font-size: 0.9rem;">🏠 Ke Website</a>
+                <button id="btnLogout" onclick="logout()" style="display: none; background: #d9534f; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 600;">🚪 Logout</button>
             </div>
-
         </div>
     </header>
 
-    <!-- FORM LOGIN PASSWORD -->
-    <div id="loginSection" class="container" style="max-width: 400px; margin: 80px auto; background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
-        <h2 style="color: #1b4d2e; text-align: center; margin-top: 0; margin-bottom: 20px;">Masuk Sistem Admin</h2>
+    <!-- FORM LOGIN -->
+    <div id="loginSection" style="max-width: 400px; margin: 80px auto; background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
+        <h2 style="color: #1b4d2e; text-align: center; margin-top: 0;">Masuk Admin</h2>
         <form onsubmit="checkPassword(event)">
             <div style="margin-bottom: 15px;">
-                <label style="display: block; font-weight: 600; margin-bottom: 6px; color: #333; font-size: 0.9rem;">Masukkan Password Admin:</label>
-                <input type="password" id="adminPassword" placeholder="Password..." required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 0.95rem;">
+                <label style="display: block; font-weight: 600; margin-bottom: 5px;">Password Admin:</label>
+                <input type="password" id="adminPassword" placeholder="Masukkan password..." required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
             </div>
-            <p id="errorMsg" style="color: #d9534f; font-size: 0.85rem; display: none; margin-bottom: 12px; font-weight: 600;">⚠️ Password salah! Coba lagi.</p>
-            <button type="submit" class="btn-primary" style="width: 100%; border: none; padding: 12px; cursor: pointer; border-radius: 6px; font-size: 1rem; font-weight: 600;">Masuk</button>
+            <p id="errorMsg" style="color: red; font-size: 0.85rem; display: none; font-weight: 600;">⚠️ Password salah!</p>
+            <button type="submit" style="width: 100%; background: #1b4d2e; color: white; border: none; padding: 12px; border-radius: 6px; font-weight: 600; cursor: pointer;">Masuk</button>
         </form>
     </div>
 
-    <!-- DASHBOARD DATA (Tersembunyi Sebelum Login) -->
-    <div id="adminContent" class="container" style="display: none; max-width: 1100px; margin: 0 auto; padding: 40px 20px;">
+    <!-- DASHBOARD ADMIN -->
+    <div id="adminContent" style="display: none; max-width: 1100px; margin: 0 auto; padding: 40px 20px;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-            <h2 style="color: #1b4d2e; margin: 0; font-size: 1.4rem;">Rekap Aspirasi & Pesan Warga</h2>
+            <h2 style="color: #1b4d2e; margin: 0;">Rekap Aspirasi & Balas Pesan</h2>
             <button onclick="loadData()" style="background: #2e6f40; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 600;">🔄 Refresh Data</button>
         </div>
 
-        <!-- Tabel Data -->
         <div style="background: #fff; border-radius: 10px; overflow-x: auto; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #eee;">
             <table style="width: 100%; border-collapse: collapse; text-align: left;">
                 <thead>
                     <tr style="background-color: #1b4d2e; color: white;">
-                        <th style="padding: 12px 15px;">Waktu</th>
-                        <th style="padding: 12px 15px;">Nama</th>
-                        <th style="padding: 12px 15px;">No. HP</th>
-                        <th style="padding: 12px 15px;">Kategori</th>
-                        <th style="padding: 12px 15px;">Pesan</th>
+                        <th style="padding: 12px; width: 100px;">Kode</th>
+                        <th style="padding: 12px; width: 180px;">Waktu & Nama</th>
+                        <th style="padding: 12px; width: 150px;">Kategori</th>
+                        <th style="padding: 12px;">Pesan Warga</th>
+                        <th style="padding: 12px; width: 280px;">Aksi / Balasan Admin</th>
                     </tr>
                 </thead>
                 <tbody id="tableBody">
-                    <tr>
-                        <td colspan="5" style="text-align: center; padding: 20px; color: #777;">Memuat data...</td>
-                    </tr>
+                    <tr><td colspan="5" style="text-align: center; padding: 20px;">Memuat data...</td></tr>
                 </tbody>
             </table>
         </div>
     </div>
 
     <script>
-        // PASSWORD ADMIN
         const PASSWORD_BENAR = "asyifa"; 
-
-        // URL WEB APP GOOGLE APPS SCRIPT
         const scriptURL = 'https://script.google.com/macros/s/AKfycbwoO-bZ-iEacDP_2IClbaxFQJeONFlL828PXCHUfv0g5wlwZxvJKACd-2P8ijaX6ary/exec';
 
-        // Fungsi Validasi Password
-        function checkPassword(event) {
-            event.preventDefault();
-            const inputPass = document.getElementById('adminPassword').value;
-
-            if (inputPass === PASSWORD_BENAR) {
+        function checkPassword(e) {
+            e.preventDefault();
+            if (document.getElementById('adminPassword').value === PASSWORD_BENAR) {
                 document.getElementById('loginSection').style.display = 'none';
                 document.getElementById('adminContent').style.display = 'block';
                 document.getElementById('btnLogout').style.display = 'block';
-                loadData(); // Ambil data dari Google Sheets
+                loadData();
             } else {
                 document.getElementById('errorMsg').style.display = 'block';
             }
         }
 
-        // Fungsi Ambil Data dari Google Sheets
+        // AMBIL SEMUA DATA PESAN
         function loadData() {
             const tableBody = document.getElementById('tableBody');
-            tableBody.innerHTML = `<tr><td colspan="5" style="text-align: center; padding: 20px;">Sedang mengambil data dari database...</td></tr>`;
+            tableBody.innerHTML = `<tr><td colspan="5" style="text-align: center; padding: 20px;">Mengambil data terbaru...</td></tr>`;
 
             fetch(scriptURL)
-                .then(response => response.json())
+                .then(res => res.json())
                 .then(data => {
                     if (!data || data.length === 0) {
-                        tableBody.innerHTML = `<tr><td colspan="5" style="text-align: center; padding: 20px;">Belum ada pesan yang masuk.</td></tr>`;
+                        tableBody.innerHTML = `<tr><td colspan="5" style="text-align: center; padding: 20px;">Belum ada pesan masuk.</td></tr>`;
                         return;
                     }
 
                     let html = '';
-                    // Urutkan agar pesan terbaru berada di paling atas
-                    data.reverse().forEach(row => {
+                    data.reverse().forEach((row, index) => {
+                        const kode = row[1] || '';
+                        const balasanTersimpan = row[6] || '';
+
                         html += `
-                            <tr style="border-bottom: 1px solid #eee;">
-                                <td style="padding: 12px 15px; font-size: 0.85rem; color: #666;">${row[0] || '-'}</td>
-                                <td style="padding: 12px 15px; font-weight: 600;">${row[1] || '-'}</td>
-                                <td style="padding: 12px 15px;">${row[2] || '-'}</td>
-                                <td style="padding: 12px 15px;"><span style="background: #eaf3ed; color: #1b4d2e; padding: 4px 8px; border-radius: 4px; font-size: 0.85rem;">${row[3] || '-'}</span></td>
-                                <td style="padding: 12px 15px; color: #444;">${row[4] || '-'}</td>
+                            <tr style="border-bottom: 1px solid #eee; vertical-align: top;">
+                                <td style="padding: 12px; font-weight: 800; color: #1b4d2e;">${kode}</td>
+                                <td style="padding: 12px;">
+                                    <strong>${row[2] || '-'}</strong><br>
+                                    <small style="color:#777;">${row[0] || '-'}</small><br>
+                                    <small style="color:#555;">📱 ${row[3] || '-'}</small>
+                                </td>
+                                <td style="padding: 12px;"><span style="background: #eaf3ed; color: #1b4d2e; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem;">${row[4] || '-'}</span></td>
+                                <td style="padding: 12px; color: #333;">${row[5] || '-'}</td>
+                                <td style="padding: 12px;">
+                                    <!-- Form Balas Langsung -->
+                                    <textarea id="reply-${index}" rows="2" placeholder="Tulis balasan di sini..." style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 0.85rem; font-family: inherit;">${balasanTersimpan}</textarea>
+                                    <button onclick="kirimBalasan('${kode}', 'reply-${index}', this)" style="margin-top: 6px; width: 100%; background: #1b4d2e; color: white; border: none; padding: 6px 10px; border-radius: 4px; font-weight: 600; cursor: pointer; font-size: 0.8rem;">
+                                        💾 ${balasanTersimpan ? 'Perbarui Balasan' : 'Kirim Balasan'}
+                                    </button>
+                                </td>
                             </tr>
                         `;
                     });
                     tableBody.innerHTML = html;
                 })
-                .catch(error => {
-                    console.error('Error:', error);
-                    tableBody.innerHTML = `<tr><td colspan="5" style="text-align: center; color: red; padding: 20px;">Gagal memuat data dari database. Periksa URL Apps Script Anda.</td></tr>`;
+                .catch(err => {
+                    tableBody.innerHTML = `<tr><td colspan="5" style="text-align: center; color: red; padding: 20px;">Gagal memuat data.</td></tr>`;
                 });
         }
 
-        // Fungsi Logout
+        // FUNGSI MENGIRIM BALASAN LANGSUNG DARI HALAMAN ADMIN
+        function kirimBalasan(kode, textareaId, btnElement) {
+            const teksBalasan = document.getElementById(textareaId).value.trim();
+            
+            if (!teksBalasan) {
+                alert('Tuliskan isi balasan terlebih dahulu!');
+                return;
+            }
+
+            const oldText = btnElement.innerHTML;
+            btnElement.disabled = true;
+            btnElement.innerHTML = '⏳ Menyimpan...';
+
+            const formData = new FormData();
+            formData.append('action', 'reply');
+            formData.append('kode', kode);
+            formData.append('balasan', teksBalasan);
+
+            fetch(scriptURL, { method: 'POST', body: formData })
+                .then(res => res.json())
+                .then(res => {
+                    btnElement.disabled = false;
+                    btnElement.innerHTML = '✅ Tersimpan!';
+                    btnElement.style.background = '#28a745';
+                    
+                    setTimeout(() => {
+                        btnElement.innerHTML = '💾 Perbarui Balasan';
+                        btnElement.style.background = '#1b4d2e';
+                    }, 2000);
+                })
+                .catch(err => {
+                    alert('Gagal menyimpan balasan.');
+                    btnElement.disabled = false;
+                    btnElement.innerHTML = oldText;
+                });
+        }
+
         function logout() {
             document.getElementById('loginSection').style.display = 'block';
             document.getElementById('adminContent').style.display = 'none';
             document.getElementById('btnLogout').style.display = 'none';
             document.getElementById('adminPassword').value = '';
-            document.getElementById('errorMsg').style.display = 'none';
         }
     </script>
 </body>
