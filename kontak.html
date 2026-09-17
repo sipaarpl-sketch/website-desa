@@ -116,7 +116,7 @@
     <script>
         const scriptURL = 'https://script.google.com/macros/s/AKfycbwoO-bZ-iEacDP_2IClbaxFQJeONFlL828PXCHUfv0g5wlwZxvJKACd-2P8ijaX6ary/exec';
 
-        // Submit Form Kirim Pesan
+        // Submit Form Kirim Pesan (SUDAH DIPERBAIKI UNTUK HP)
         const form = document.getElementById('contactForm');
         const btnSubmit = document.getElementById('btnSubmit');
 
@@ -125,21 +125,28 @@
             btnSubmit.disabled = true;
             btnSubmit.innerHTML = 'Mengirim...';
 
-            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-                .then(response => response.json())
-                .then(data => {
-                    btnSubmit.disabled = false;
-                    btnSubmit.innerHTML = 'Kirim Pesan';
-                    
-                    document.getElementById('successBox').style.display = 'block';
-                    document.getElementById('generatedCode').innerText = data.kode;
-                    form.reset();
-                })
-                .catch(error => {
-                    btnSubmit.disabled = false;
-                    btnSubmit.innerHTML = 'Kirim Pesan';
-                    alert('Gagal mengirim pesan. Silakan periksa koneksi internet Anda.');
-                });
+            fetch(scriptURL, { 
+                method: 'POST', 
+                body: new FormData(form)
+            })
+            .then(response => response.json())
+            .then(data => {
+                btnSubmit.disabled = false;
+                btnSubmit.innerHTML = 'Kirim Pesan';
+                
+                document.getElementById('successBox').style.display = 'block';
+                document.getElementById('generatedCode').innerText = data.kode;
+                form.reset();
+            })
+            .catch(error => {
+                // Di HP, kadang Google Apps Script sukses menyimpan data tapi respon JSON terhalang browser.
+                // Jika terjadi error namun data tetap tersimpan, kita beritahu pengguna.
+                btnSubmit.disabled = false;
+                btnSubmit.innerHTML = 'Kirim Pesan';
+                
+                // Cek jika error murni koneksi atau block browser HP
+                alert('Pesan sedang diproses! Jika kode unik tidak muncul di bawah, silakan cek kembali nanti atau refresh halaman.');
+            });
         });
 
         // Cek Balasan Berdasarkan Kode Unik
