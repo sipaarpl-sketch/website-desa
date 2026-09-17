@@ -9,40 +9,54 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-<body style="background-color: #f4f7f4;">
+<body style="background-color: #f4f7f4; margin: 0; font-family: 'Plus Jakarta Sans', sans-serif;">
 
-    <!-- Navbar Sederhana Admin -->
-    <header class="navbar">
-        <div class="container nav-container">
-            <div class="logo">
-                <span class="logo-icon">🔒</span>
+    <!-- NAVBAR ADMIN -->
+    <header class="navbar" style="background: #ffffff; border-bottom: 1px solid #e5e7eb; padding: 15px 0;">
+        <div class="container nav-container" style="display: flex; justify-content: space-between; align-items: center; max-width: 1100px; margin: 0 auto; padding: 0 20px;">
+            
+            <div class="logo" style="display: flex; align-items: center; gap: 10px;">
+                <span class="logo-icon" style="font-size: 1.5rem;">🔒</span>
                 <div class="logo-text">
-                    <span class="brand-title">ADMIN PANEL</span>
-                    <span class="brand-sub">Desa Pusaka</span>
+                    <span class="brand-title" style="display: block; font-weight: 800; color: #1b4d2e; font-size: 1.1rem;">ADMIN PANEL</span>
+                    <span class="brand-sub" style="display: block; font-size: 0.8rem; color: #666;">Desa Pusaka</span>
                 </div>
             </div>
-            <button id="btnLogout" onclick="logout()" style="display:none; background:#d9534f; color:white; border:none; padding:8px 16px; border-radius:5px; cursor:pointer; font-weight:600;">Keluar (Logout)</button>
+
+            <!-- MENU / TOMBOL NAVIGASI HEADER -->
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <!-- Tombol Kembali ke Website -->
+                <a href="index.html" style="text-decoration: none; background: #eaf3ed; color: #1b4d2e; padding: 8px 16px; border-radius: 6px; font-weight: 600; font-size: 0.9rem; transition: 0.2s;">
+                    🏠 Kembali ke Website
+                </a>
+
+                <!-- Tombol Logout (Tampil Hanya Setelah Login) -->
+                <button id="btnLogout" onclick="logout()" style="display: none; background: #d9534f; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.9rem;">
+                    🚪 Keluar (Logout)
+                </button>
+            </div>
+
         </div>
     </header>
 
     <!-- FORM LOGIN PASSWORD -->
     <div id="loginSection" class="container" style="max-width: 400px; margin: 80px auto; background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
-        <h2 style="color: #1b4d2e; text-align: center; margin-bottom: 20px;">Masuk Sistem Admin</h2>
+        <h2 style="color: #1b4d2e; text-align: center; margin-top: 0; margin-bottom: 20px;">Masuk Sistem Admin</h2>
         <form onsubmit="checkPassword(event)">
             <div style="margin-bottom: 15px;">
-                <label style="display: block; font-weight: 600; margin-bottom: 5px; color: #333;">Masukkan Password Admin:</label>
-                <input type="password" id="adminPassword" placeholder="Password..." required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;">
+                <label style="display: block; font-weight: 600; margin-bottom: 6px; color: #333; font-size: 0.9rem;">Masukkan Password Admin:</label>
+                <input type="password" id="adminPassword" placeholder="Password..." required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 0.95rem;">
             </div>
-            <p id="errorMsg" style="color: red; font-size: 0.85rem; display: none; margin-bottom: 10px;">Password salah! Coba lagi.</p>
-            <button type="submit" class="btn-primary" style="width: 100%; border: none; padding: 12px; cursor: pointer;">Masuk</button>
+            <p id="errorMsg" style="color: #d9534f; font-size: 0.85rem; display: none; margin-bottom: 12px; font-weight: 600;">⚠️ Password salah! Coba lagi.</p>
+            <button type="submit" class="btn-primary" style="width: 100%; border: none; padding: 12px; cursor: pointer; border-radius: 6px; font-size: 1rem; font-weight: 600;">Masuk</button>
         </form>
     </div>
 
     <!-- DASHBOARD DATA (Tersembunyi Sebelum Login) -->
-    <div id="adminContent" class="container" style="display: none; padding: 40px 20px;">
+    <div id="adminContent" class="container" style="display: none; max-width: 1100px; margin: 0 auto; padding: 40px 20px;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-            <h2 style="color: #1b4d2e; margin: 0;">Rekap Aspirasi & Pesan Warga</h2>
-            <button onclick="loadData()" style="background: #2e6f40; color: white; border: none; padding: 8px 15px; border-radius: 6px; cursor: pointer;">🔄 Refresh Data</button>
+            <h2 style="color: #1b4d2e; margin: 0; font-size: 1.4rem;">Rekap Aspirasi & Pesan Warga</h2>
+            <button onclick="loadData()" style="background: #2e6f40; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 600;">🔄 Refresh Data</button>
         </div>
 
         <!-- Tabel Data -->
@@ -67,10 +81,10 @@
     </div>
 
     <script>
-        // MASUKKAN PASSWORD ADMIN YANG ANDA INGINKAN DI SINI
+        // PASSWORD ADMIN
         const PASSWORD_BENAR = "asyifa"; 
 
-        // MASUKKAN URL WEB APP GOOGLE SCRIPT ANDA DI SINI
+        // URL WEB APP GOOGLE APPS SCRIPT
         const scriptURL = 'https://script.google.com/macros/s/AKfycbwoO-bZ-iEacDP_2IClbaxFQJeONFlL828PXCHUfv0g5wlwZxvJKACd-2P8ijaX6ary/exec';
 
         // Fungsi Validasi Password
@@ -96,7 +110,7 @@
             fetch(scriptURL)
                 .then(response => response.json())
                 .then(data => {
-                    if (data.length === 0) {
+                    if (!data || data.length === 0) {
                         tableBody.innerHTML = `<tr><td colspan="5" style="text-align: center; padding: 20px;">Belum ada pesan yang masuk.</td></tr>`;
                         return;
                     }
