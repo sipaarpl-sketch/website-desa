@@ -114,88 +114,43 @@
     </div>
 
     <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbwoO-bZ-iEacDP_2IClbaxFQJeONFlL828PXCHUfv0g5wlwZxvJKACd-2P8ijaX6ary/exec';
-
-        // Submit Form Kirim Pesan (SUDAH DIPERBAIKI UNTUK HP)
         const form = document.getElementById('contactForm');
-        const btnSubmit = document.getElementById('btnSubmit');
+const btnSubmit = document.getElementById('btnSubmit');
 
-        form.addEventListener('submit', e => {
-            e.preventDefault();
-            btnSubmit.disabled = true;
-            btnSubmit.innerHTML = 'Mengirim...';
+form.addEventListener('submit', e => {
+    e.preventDefault();
+    btnSubmit.disabled = true;
+    btnSubmit.innerHTML = 'Mengirim...';
 
-            fetch(scriptURL, { 
-                method: 'POST', 
-                body: new FormData(form)
-            })
-            .then(response => response.json())
-            .then(data => {
-                btnSubmit.disabled = false;
-                btnSubmit.innerHTML = 'Kirim Pesan';
-                
-                document.getElementById('successBox').style.display = 'block';
-                document.getElementById('generatedCode').innerText = data.kode;
-                form.reset();
-            })
-            .catch(error => {
-                // Di HP, kadang Google Apps Script sukses menyimpan data tapi respon JSON terhalang browser.
-                // Jika terjadi error namun data tetap tersimpan, kita beritahu pengguna.
-                btnSubmit.disabled = false;
-                btnSubmit.innerHTML = 'Kirim Pesan';
-                
-                // Cek jika error murni koneksi atau block browser HP
-                alert('Pesan sedang diproses! Jika kode unik tidak muncul di bawah, silakan cek kembali nanti atau refresh halaman.');
-            });
-        });
+    // 1. Buat kode unik langsung di HP pengguna
+    const randomNum = Math.floor(1000 + Math.random() * 9000);
+    const kodeUnik = `DESA-${randomNum}`;
 
-        // Cek Balasan Berdasarkan Kode Unik
-        function cekBalasan() {
-            const kode = document.getElementById('inputKode').value.trim();
-            if(!kode) {
-                alert('Silakan masukkan kode pesan Anda terlebih dahulu!');
-                return;
-            }
+    // 2. Siapkan data pengiriman
+    const formData = new FormData(form);
+    formData.append('kode', kodeUnik);
 
-            const hasilBox = document.getElementById('hasilCek');
-            hasilBox.style.display = 'block';
-            hasilBox.innerHTML = '<p style="text-align:center; color:#666; margin:0;">Sedang mencari data...</p>';
+    // 3. Tampilkan kode unik secara instan ke layar HP
+    document.getElementById('successBox').style.display = 'block';
+    document.getElementById('generatedCode').innerText = kodeUnik;
 
-            fetch(`${scriptURL}?kode=${encodeURIComponent(kode)}`)
-                .then(res => res.json())
-                .then(data => {
-                    if(!data) {
-                        hasilBox.innerHTML = '<p style="color:#d9534f; text-align:center; margin:0; font-weight:600;">⚠️ Kode tidak ditemukan. Periksa kembali kode Anda.</p>';
-                        return;
-                    }
-
-                    let statusHTML = '';
-                    if (data.balasan && data.balasan.trim() !== "") {
-                        statusHTML = `
-                            <div style="background: #eaf3ed; border-left: 4px solid #1b4d2e; padding: 12px; color: #1b4d2e; border-radius: 4px; margin-top: 10px;">
-                                <strong style="display:block; margin-bottom: 4px;">💬 Balasan Admin Desa:</strong>
-                                ${data.balasan}
-                            </div>`;
-                    } else {
-                        statusHTML = `
-                            <div style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 12px; color: #856404; border-radius: 4px; margin-top: 10px;">
-                                ⏳ <strong>Pesan belum dibalas oleh admin.</strong> Silakan cek kembali nanti.
-                            </div>`;
-                    }
-
-                    hasilBox.innerHTML = `
-                        <div style="font-size: 0.8rem; color: #777;">Tanggal: ${data.waktu}</div>
-                        <div style="font-weight: 700; color: #1b4d2e; margin-top: 2px;">Kategori: ${data.kategori}</div>
-                        <div style="margin-top: 10px; font-size: 0.85rem; color: #444; background: #fff; padding: 10px; border-radius: 6px; border: 1px solid #e0e0e0;">
-                            <strong>Pesan Anda:</strong><br>${data.pesan}
-                        </div>
-                        ${statusHTML}
-                    `;
-                })
-                .catch(err => {
-                    hasilBox.innerHTML = '<p style="color:red; text-align:center; margin:0;">Gagal mengambil data dari server.</p>';
-                });
-        }
+    // 4. Kirim data ke Google Sheets
+    fetch(scriptURL, { 
+        method: 'POST', 
+        body: formData,
+        mode: 'no-cors' // Menghindari kendala CORS di browser HP
+    })
+    .then(() => {
+        btnSubmit.disabled = false;
+        btnSubmit.innerHTML = 'Kirim Pesan';
+        form.reset();
+    })
+    .catch(error => {
+        btnSubmit.disabled = false;
+        btnSubmit.innerHTML = 'Kirim Pesan';
+        alert('Gagal terhubung ke server. Periksa koneksi internet Anda.');
+    });
+});
     </script>
 </body>
 </html>
