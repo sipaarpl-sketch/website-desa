@@ -12,7 +12,7 @@
 </head>
 <body>
 
-   <!-- Header & Navigasi -->
+    <!-- Header & Navigasi -->
     <header class="navbar">
         <div class="container nav-container">
             <div class="logo">
@@ -37,7 +37,7 @@
     </header>
 
     <!-- HERO / BANNER HEADER DESA -->
-     <section class="page-header">
+    <section class="page-header">
         <div class="page-header-overlay"></div>
         <div class="container page-header-content">
             <span class="badge">Hubungi Kami</span>
@@ -57,17 +57,17 @@
             <form id="contactForm" style="display: flex; flex-direction: column; gap: 15px;">
                 <div>
                     <label style="display: block; font-weight: 600; margin-bottom: 5px; font-size: 0.85rem;">Nama Lengkap</label>
-                    <input type="text" name="nama" placeholder="Masukkan nama Anda..." required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-family: inherit;">
+                    <input type="text" id="inputNama" name="nama" placeholder="Masukkan nama Anda..." required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-family: inherit;">
                 </div>
 
                 <div>
                     <label style="display: block; font-weight: 600; margin-bottom: 5px; font-size: 0.85rem;">Nomor WhatsApp / HP</label>
-                    <input type="tel" name="hp" placeholder="08xxxxxxxxxx" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-family: inherit;">
+                    <input type="tel" id="inputHp" name="hp" placeholder="08xxxxxxxxxx" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-family: inherit;">
                 </div>
 
                 <div>
                     <label style="display: block; font-weight: 600; margin-bottom: 5px; font-size: 0.85rem;">Kategori Pesan</label>
-                    <select name="kategori" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; background: #fff; box-sizing: border-box; font-family: inherit;">
+                    <select id="inputKategori" name="kategori" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; background: #fff; box-sizing: border-box; font-family: inherit;">
                         <option value="Kesehatan & Posyandu">🏥 Layanan Kesehatan & Posyandu</option>
                         <option value="Pendidikan & Kepemudaan">🎓 Pendidikan & Kepemudaan</option>
                         <option value="Kebersihan & Lingkungan">🧹 Kebersihan & Lingkungan</option>
@@ -81,7 +81,7 @@
 
                 <div>
                     <label style="display: block; font-weight: 600; margin-bottom: 5px; font-size: 0.85rem;">Isi Pesan / Aspirasi</label>
-                    <textarea name="pesan" rows="4" placeholder="Tuliskan pesan Anda secara rinci..." required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; resize: vertical; font-family: inherit;"></textarea>
+                    <textarea id="inputPesan" name="pesan" rows="4" placeholder="Tuliskan pesan Anda secara rinci..." required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; resize: vertical; font-family: inherit;"></textarea>
                 </div>
 
                 <button type="submit" id="btnSubmit" style="background: #1b4d2e; color: white; border: none; padding: 12px; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 0.95rem;">Kirim Pesan</button>
@@ -116,7 +116,7 @@
     <script>
         const scriptURL = 'https://script.google.com/macros/s/AKfycbwoO-bZ-iEacDP_2IClbaxFQJeONFlL828PXCHUfv0g5wlwZxvJKACd-2P8ijaX6ary/exec';
 
-        // Submit Form Kirim Pesan
+        // Submit Form Kirim Pesan (Sangat Kompatibel dengan HP & Desktop)
         const form = document.getElementById('contactForm');
         const btnSubmit = document.getElementById('btnSubmit');
 
@@ -125,21 +125,40 @@
             btnSubmit.disabled = true;
             btnSubmit.innerHTML = 'Mengirim...';
 
-            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-                .then(response => response.json())
-                .then(data => {
-                    btnSubmit.disabled = false;
-                    btnSubmit.innerHTML = 'Kirim Pesan';
-                    
-                    document.getElementById('successBox').style.display = 'block';
-                    document.getElementById('generatedCode').innerText = data.kode;
-                    form.reset();
-                })
-                .catch(error => {
-                    btnSubmit.disabled = false;
-                    btnSubmit.innerHTML = 'Kirim Pesan';
-                    alert('Gagal mengirim pesan. Silakan periksa koneksi internet Anda.');
-                });
+            const randomNum = Math.floor(1000 + Math.random() * 9000);
+            const kodeUnik = `DESA-${randomNum}`;
+
+            const nama = document.getElementById('inputNama').value;
+            const hp = document.getElementById('inputHp').value;
+            const kategori = document.getElementById('inputKategori').value;
+            const pesan = document.getElementById('inputPesan').value;
+
+            const params = new URLSearchParams();
+            params.append('kode', kodeUnik);
+            params.append('nama', nama);
+            params.append('hp', hp);
+            params.append('kategori', kategori);
+            params.append('pesan', pesan);
+
+            fetch(scriptURL, { 
+                method: 'POST', 
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: params.toString()
+            })
+            .then(() => {
+                btnSubmit.disabled = false;
+                btnSubmit.innerHTML = 'Kirim Pesan';
+                
+                document.getElementById('successBox').style.display = 'block';
+                document.getElementById('generatedCode').innerText = kodeUnik;
+                form.reset();
+            })
+            .catch(error => {
+                btnSubmit.disabled = false;
+                btnSubmit.innerHTML = 'Kirim Pesan';
+                alert('Gagal mengirim pesan. Silakan periksa koneksi internet Anda.');
+            });
         });
 
         // Cek Balasan Berdasarkan Kode Unik
